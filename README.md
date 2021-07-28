@@ -1,4 +1,4 @@
-# OpenCore
+# SurvivalShooter
 example of use OpenUI and Ecs (Entitas)
 ****
 WIP
