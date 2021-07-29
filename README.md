@@ -17,7 +17,7 @@ List of useful articles:
 - [The truth behind Inversion of Control – Part IV – Dependency Inversion Principle](https://www.sebaslab.com/the-truth-behind-inversion-of-control-part-iv-dependency-inversion-principle/)
 - [The truth behind Inversion of Control – Part V – Entity Component System design to achieve true Inversion of Flow Control](https://www.sebaslab.com/ecs-design-to-achieve-true-inversion-of-flow-control/)
 ****
-Codegenaration:
+Codegeneration:
 1. before starting work with the ECS, you need to import the settings (this is done once)
 ![Jenny_1](https://github.com/vetcat/SurvivalShooterEntitas/blob/master/OtherSource/Images/j1.png "Jenny_1")
 2. after adding new components, you need to start code generation
