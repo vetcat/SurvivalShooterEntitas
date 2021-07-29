@@ -18,4 +18,10 @@ List of useful articles:
 - [The truth behind Inversion of Control – Part V – Entity Component System design to achieve true Inversion of Flow Control](https://www.sebaslab.com/ecs-design-to-achieve-true-inversion-of-flow-control/)
 ****
 Codegenaration:
+1. before starting work with the ECS, you need to import the settings (this is done once)
+![Jenny_1](https://github.com/vetcat/SurvivalShooterEntitas/blob/master/OtherSource/Images/j1.png "Jenny_1")
+2. after adding new components, you need to start code generation
+![Jenny_2](https://github.com/vetcat/SurvivalShooterEntitas/blob/master/OtherSource/Images/j2.png "Jenny_2")
+
+Learn more about code generation settings 
 [Entitas ECS Unity Tutorial - Setup & Basics](https://www.youtube.com/watch?v=L-18XRTarOM)
