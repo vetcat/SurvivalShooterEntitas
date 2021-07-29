@@ -1,3 +1,4 @@
+using Game.Systems;
 using Libs.OpenCore.Ecs;
 using Libs.OpenCore.Ecs.Extensions;
 using UnityEngine;
@@ -30,9 +31,15 @@ namespace Game.Installers
             Container.BindInterfacesTo<MainBootstrap>().AsSingle().WithArguments(gameObject.name).NonLazy();
         }
 
+        //the order of work of the systems depends on the order of binding 
         private void BindSystems()
         {
+            //-- Hi priority 
+            Container.BindInterfacesAndSelfTo<DeltaTimeUpdateSystem>().AsSingle();
             
+            //-- Medium 
+            
+            //-- Low priority (CleanUp systems)
         }
     }
 }
