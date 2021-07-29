@@ -105,7 +105,7 @@ namespace Libs.OpenUI.Localization
         {
             if (!GetAvailableLanguages.Contains(language))
             {
-                Debug.LogError("LocalizationProvider ChangeLanguage Localization not found for language = " + language);
+                Debug.Log("LocalizationProvider ChangeLanguage Localization not found for language = " + language);
                 return;
             }
 

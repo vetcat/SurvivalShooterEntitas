@@ -8,15 +8,18 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int DeltaTime = 0;
+    public const int Destroyed = 1;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
-
+        "DeltaTime",
+        "Destroyed"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(Ecs.Features.Game.Components.DeltaTimeComponent),
+        typeof(Libs.OpenCore.Ecs.Common.Components.DestroyedComponent)
     };
 }
