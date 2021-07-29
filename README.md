@@ -2,7 +2,14 @@
 example of use OpenUI and Ecs (Entitas)
 ****
 WIP
-***
+****
+Dependencies (already imported into the project):
+- [OpenUI](https://github.com/vetcat/OpenUI)
+- [Entitas](https://assetstore.unity.com/packages/tools/game-toolkits/entitas-87638)
+****
+Art:
+- [free unity3d learn project Survival Shooter](https://learn.unity.com/project/survival-shooter-tutorial)
+****
 List of useful articles:
 - [Survival Shooter using Unity’s Entity Component System](https://medium.com/@gamevanilla/survival-shooter-using-unitys-entity-component-system-revisited-874cd69085ae)
 - [Introduction in AlphaECS](https://github.com/tbriley/AlphaECS)
