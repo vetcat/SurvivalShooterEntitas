@@ -1,3 +1,4 @@
+using Game.Models.PlayerCharacter;
 using Game.Systems;
 using Libs.OpenCore.Ecs;
 using Libs.OpenCore.Ecs.Extensions;
@@ -19,7 +20,8 @@ namespace Game.Installers
 
             foreach (var context in contexts.allContexts)
                 Container.Bind(context.GetType()).FromInstance(context).AsSingle();
-            
+
+            BindEntityFactories();
             BindSystems();
             
             // Cleanup destroyed entity
@@ -36,10 +38,16 @@ namespace Game.Installers
         {
             //-- Hi priority 
             Container.BindInterfacesAndSelfTo<DeltaTimeUpdateSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerSpawnSystem>().AsSingle();
             
             //-- Medium 
             
             //-- Low priority (CleanUp systems)
+        }
+
+        private void BindEntityFactories()
+        {
+            Container.BindInterfacesTo<PlayerCharacterEntityFactory>().AsSingle().NonLazy();
         }
     }
 }
