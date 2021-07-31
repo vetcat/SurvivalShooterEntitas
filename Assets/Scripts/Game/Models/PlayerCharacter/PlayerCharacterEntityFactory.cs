@@ -7,11 +7,14 @@ namespace Game.Models.PlayerCharacter
     {
         private readonly GameContext _gameContext;
         private readonly IGameParametersSettings _gameParametersSettings;
+        private readonly PlayerCharacterView.Factory _viewFactory;
 
-        public PlayerCharacterEntityFactory(GameContext gameContext, IGameParametersSettings gameParametersSettings)
+        public PlayerCharacterEntityFactory(GameContext gameContext, IGameParametersSettings gameParametersSettings,
+            PlayerCharacterView.Factory viewFactory)
         {
             _gameContext = gameContext;
             _gameParametersSettings = gameParametersSettings;
+            _viewFactory = viewFactory;
         }
 
         public GameEntity Create()
@@ -21,7 +24,17 @@ namespace Game.Models.PlayerCharacter
             entity.AddHealth(_gameParametersSettings.StartingPlayerHealth);
             entity.AddPlayerInput(Vector2.zero, Vector2.zero, false);
 
+            AddView(entity);
+
             return entity;
+        }
+
+        private void AddView(GameEntity entity)
+        {
+            var view = _viewFactory.Create();
+            view.Link(entity);
+            entity.AddEntityView(view);
+            entity.AddPlayerCharacterView(view);
         }
     }
 }
