@@ -1,6 +1,9 @@
 # SurvivalShooter
 example of use OpenUI and Ecs (Entitas)
 ****
+Unity version :
+- 2019.4.18f1 : [master](https://github.com/vetcat/SurvivalShooterEntitas/tree/master) branch
+****
 List of useful articles:
 - [Survival Shooter using Unity’s Entity Component System](https://medium.com/@gamevanilla/survival-shooter-using-unitys-entity-component-system-revisited-874cd69085ae)
 - [Introduction in AlphaECS](https://github.com/tbriley/AlphaECS) (good comparison of Monobehavor and ECS approach in Introduction section)
