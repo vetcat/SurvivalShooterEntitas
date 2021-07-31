@@ -1,10 +1,23 @@
+using Game.Models.PlayerCharacter;
 using UnityEngine;
 using Zenject;
 
-[CreateAssetMenu(fileName = "GamePrefabsInstaller", menuName = "Installers/GamePrefabsInstaller")]
-public class GamePrefabsInstaller : ScriptableObjectInstaller<GamePrefabsInstaller>
+namespace Game.Installers
 {
-    public override void InstallBindings()
+    [CreateAssetMenu(fileName = "GamePrefabsInstaller", menuName = "Installers/GamePrefabsInstaller")]
+    public class GamePrefabsInstaller : ScriptableObjectInstaller<GamePrefabsInstaller>
     {
+        [SerializeField] private PlayerCharacterView _playerCharacterView;
+    
+        public override void InstallBindings()
+        {
+            BindPrefabs();
+        }
+
+        private void BindPrefabs()
+        {
+            Container.BindFactory<PlayerCharacterView, PlayerCharacterView.Factory>()
+                .FromComponentInNewPrefab(_playerCharacterView.gameObject);
+        }
     }
 }
