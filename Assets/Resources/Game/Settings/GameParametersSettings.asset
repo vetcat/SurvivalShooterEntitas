@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c8f62927fb042359ade00ba28fd2c1, type: 3}
+  m_Name: GameParametersSettings
+  m_EditorClassIdentifier: 
+  _playerMoveSpeed: 6
+  _startingPlayerHealth: 100
+  _startingEnemyHealth: 100
+  _enemySinkSpeed: 2.5
+  _enemyAttackDamage: 20
+  _timeBetweenEnemyAttacks: 0.5
+  _timeBetweenBullets: 0.15
+  _gunRange: 100
+  _gunEffectsDisplayTime: 0.2
+  _damagePerShot: 20
+  _scorePerDeath: 10
+  _camRayLen: 100
+  _camSmoothing: 5
