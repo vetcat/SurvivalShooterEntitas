@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd88946df176b4cc6a1076b1ac966af0, type: 3}
   m_Name: GamePrefabsInstaller
   m_EditorClassIdentifier: 
-  _playerCharacterView: {fileID: 3617210910411010974, guid: 18b579ea7c7a729479e9c703022c8799,
+  PlayerCharacterView: {fileID: 3617210910411010974, guid: 18b579ea7c7a729479e9c703022c8799,
     type: 3}
