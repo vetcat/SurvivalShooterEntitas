@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using Game.Models.PlayerCharacter;
 using Game.Providers;
 using Game.Settings;
 using Libs.OpenCore.Ecs;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace Game.Systems
 {
-    public class PlayerMoveSystem : IFixedSystem
+    public class PlayerMoveSystem : IFixedSystem, IPlayerMoveSystem
     {
         private readonly ITimeProvider _timeProvider;
         private readonly IGameParametersSettings _gameParametersSettings;
@@ -28,20 +29,23 @@ namespace Game.Systems
 
         public void Fixed()
         {
-            var inputVector = _inputProvider.InputVector;
-            if (inputVector == Vector3.zero)
+            if (_inputProvider.InputVector == Vector3.zero)
                 return;
-                
+
             _playersGroup.GetEntities(_playersBuffer);
-            
+
             for (var i = 0; i < _playersBuffer.Count; i++)
             {
                 var playerView = _playersBuffer[i].playerCharacterView.Value;
-                var speed = _gameParametersSettings.PlayerMoveSpeed;
-               
-                var movePosition = playerView.GetRigidbody.position +  inputVector* _timeProvider.DeltaTime * speed;
+                var movePosition = GetMovePosition(playerView);
                 playerView.GetRigidbody.MovePosition(movePosition);
             }
+        }
+
+        public Vector3 GetMovePosition(PlayerCharacterView playerCharacterView)
+        {
+            var speed = _gameParametersSettings.PlayerMoveSpeed;
+            return playerCharacterView.GetRigidbody.position + _inputProvider.InputVector * _timeProvider.DeltaTime * speed; 
         }
     }
 }
