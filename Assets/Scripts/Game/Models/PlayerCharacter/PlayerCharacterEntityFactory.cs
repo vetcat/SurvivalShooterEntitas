@@ -22,7 +22,6 @@ namespace Game.Models.PlayerCharacter
             var entity = _gameContext.CreateEntity();
             entity.isPlayerCharacter = true;
             entity.AddHealth(_gameParametersSettings.StartingPlayerHealth);
-            entity.AddPlayerInput(Vector2.zero, Vector2.zero, false);
 
             AddView(entity);
 

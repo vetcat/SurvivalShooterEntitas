@@ -41,6 +41,7 @@ namespace Game.Installers
             Container.BindInterfacesAndSelfTo<PlayerSpawnSystem>().AsSingle();
             
             //-- Medium 
+            Container.BindInterfacesAndSelfTo<PlayerMoveSystem>().AsSingle();
             
             //-- Low priority (CleanUp systems)
         }

@@ -582,6 +582,15 @@ PlayerSettings:
     1: ZEN_SIGNALS_ADD_UNIRX
     4: ZEN_SIGNALS_ADD_UNIRX
     7: ZEN_SIGNALS_ADD_UNIRX
+    13: 
+    14: 
+    19: 
+    21: 
+    25: 
+    27: 
+    28: 
+    29: 
+    30: 
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
