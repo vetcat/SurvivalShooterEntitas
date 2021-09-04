@@ -43,5 +43,8 @@ namespace Game.Settings
 
         public float CamSmoothing => _camSmoothing;
         [SerializeField] private float _camSmoothing = 5f;
+        
+        public Vector3 CameraOffset { get; }
+        [SerializeField] private Vector3 _cameraOffset;
     }
 }

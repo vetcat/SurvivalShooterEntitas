@@ -1,8 +1,7 @@
 using System;
-using Libs.OpenCore.Providers;
 using UnityEngine;
 
-namespace ProjectContext.Providers
+namespace Libs.OpenCore.Providers
 {
     public class TimeProvider : ITimeProvider
     {

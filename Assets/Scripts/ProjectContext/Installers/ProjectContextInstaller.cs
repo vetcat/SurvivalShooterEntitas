@@ -1,7 +1,7 @@
+using Libs.OpenCore.Providers;
 using Libs.OpenUI;
 using Libs.OpenUI.Localization;
 using Libs.OpenUI.Signals;
-using ProjectContext.Providers;
 using UnityEngine;
 using Zenject;
 
