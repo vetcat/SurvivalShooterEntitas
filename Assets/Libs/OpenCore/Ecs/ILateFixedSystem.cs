@@ -2,8 +2,8 @@
 
 namespace Libs.OpenCore.Ecs
 {
-    public interface ILateFixedSystem : ISystem
+    public interface ILateFixedSystem : IExecuteSystem
     {
-        void LateFixed();
+        
     }
 }

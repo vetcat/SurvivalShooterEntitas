@@ -27,7 +27,13 @@ namespace Game.Systems
                 .NoneOf(GameMatcher.Death, GameMatcher.Destroyed));
         }
 
-        public void Fixed()
+        public Vector3 GetMovePosition(PlayerCharacterView playerCharacterView)
+        {
+            var speed = _gameParametersSettings.PlayerMoveSpeed;
+            return playerCharacterView.GetRigidbody.position + _inputProvider.InputVector * _timeProvider.FixedDeltaTime * speed; 
+        }
+
+        public void Execute()
         {
             if (_inputProvider.InputVector == Vector3.zero)
                 return;
@@ -37,15 +43,14 @@ namespace Game.Systems
             for (var i = 0; i < _playersBuffer.Count; i++)
             {
                 var playerView = _playersBuffer[i].playerCharacterView.Value;
-                var movePosition = GetMovePosition(playerView);
-                playerView.GetRigidbody.MovePosition(movePosition);
+                MovePlayer(playerView);
             }
         }
 
-        public Vector3 GetMovePosition(PlayerCharacterView playerCharacterView)
+        private void MovePlayer(PlayerCharacterView playerView)
         {
-            var speed = _gameParametersSettings.PlayerMoveSpeed;
-            return playerCharacterView.GetRigidbody.position + _inputProvider.InputVector * _timeProvider.DeltaTime * speed; 
+            var movePosition = GetMovePosition(playerView);
+            playerView.GetRigidbody.MovePosition(movePosition);
         }
     }
 }

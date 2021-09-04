@@ -2,8 +2,8 @@
 
 namespace Libs.OpenCore.Ecs
 {
-    public interface IFixedSystem : ISystem
+    public interface IFixedSystem : IExecuteSystem
     {
-        void Fixed();
+
     }
 }

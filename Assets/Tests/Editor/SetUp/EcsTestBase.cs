@@ -13,8 +13,8 @@ namespace Tests.Editor.SetUp
         {
             AutoInitialize = false;
             container.BindInterfacesAndSelfTo<TimeProviderForTest>().AsSingle().NonLazy();
-            container.BindInterfacesAndSelfTo<MainBootstrap>().AsSingle().WithArguments("Test");
-
+            container.BindInterfacesAndSelfTo<MainBootstrap>().AsSingle().NonLazy();
+            
             var contexts = Contexts.sharedInstance;
             container.Bind<Contexts>().FromInstance(contexts).AsSingle();
             container.BindInterfacesAndSelfTo<GameContext>().FromInstance(contexts.game).AsSingle();
@@ -38,8 +38,6 @@ namespace Tests.Editor.SetUp
             _bootstrap.LateFixed();
             _bootstrap.Tick();
             _bootstrap.LateTick();
-            _bootstrap.GuiRender();
-            _bootstrap.GizmoRender();
         }
     }
 }

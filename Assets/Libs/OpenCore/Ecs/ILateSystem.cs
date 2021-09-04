@@ -2,8 +2,8 @@
 
 namespace Libs.OpenCore.Ecs
 {
-    public interface ILateSystem : ISystem
+    public interface ILateSystem :  IExecuteSystem
     {
-        void Late();
+       
     }
 }

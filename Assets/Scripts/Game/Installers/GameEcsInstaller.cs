@@ -30,7 +30,7 @@ namespace Game.Installers
             
             // Main Bootstrap
             Container.BindInstance(contexts).WhenInjectedInto<MainBootstrap>();
-            Container.BindInterfacesTo<MainBootstrap>().AsSingle().WithArguments(gameObject.name).NonLazy();
+            Container.BindInterfacesTo<MainBootstrap>().AsSingle().NonLazy();
         }
 
         //the order of work of the systems depends on the order of binding 
@@ -42,7 +42,6 @@ namespace Game.Installers
             
             //-- Medium 
             Container.BindInterfacesAndSelfTo<PlayerMoveSystem>().AsSingle();
-            //
             Container.BindInterfacesAndSelfTo<CameraFollowSystem>().AsSingle();
             
             //-- Low priority (CleanUp systems)
