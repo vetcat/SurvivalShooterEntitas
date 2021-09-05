@@ -12,7 +12,6 @@ namespace Libs.OpenCore.Ecs
         
         private readonly Feature _featureMain;
         private readonly Feature _featureFixedSystems;
-        private readonly Feature _featureLateFixedSystems;
 
         private readonly List<IResetable> _resetables;
         
@@ -26,7 +25,6 @@ namespace Libs.OpenCore.Ecs
 
             _featureMain = new Feature("Main Systems");
             _featureFixedSystems = new Feature("Fixed Systems");
-            _featureLateFixedSystems = new Feature("LateFixed Systems");
 
             foreach (var system in systems)
             {
@@ -34,9 +32,6 @@ namespace Libs.OpenCore.Ecs
                 {
                     case IFixedSystem fixedSystem:
                         _featureFixedSystems.Add(fixedSystem);
-                        break;
-                    case ILateFixedSystem lateFixedSystem:
-                        _featureLateFixedSystems.Add(lateFixedSystem);
                         break;
                     default:
                         _featureMain.Add(system);
@@ -52,7 +47,6 @@ namespace Libs.OpenCore.Ecs
 
             _featureMain.Initialize();
             _featureFixedSystems.Initialize();
-            _featureLateFixedSystems.Initialize();
             _isInitialized = true;
         }
 
@@ -68,16 +62,8 @@ namespace Libs.OpenCore.Ecs
         {
             if (_isPaused)
                 return;
-
-            _featureFixedSystems.Execute();
-        }
-
-        public void LateFixed()
-        {
-            if (_isPaused)
-                return;
             
-            _featureLateFixedSystems.Execute();
+            _featureFixedSystems.Execute();
         }
 
         public void LateTick()
@@ -87,7 +73,6 @@ namespace Libs.OpenCore.Ecs
 
             _featureMain.Cleanup();
             _featureFixedSystems.Cleanup();
-            _featureLateFixedSystems.Cleanup();
         }
         
         public void Pause(bool isPaused) => _isPaused = isPaused;

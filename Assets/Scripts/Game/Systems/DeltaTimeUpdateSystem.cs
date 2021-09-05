@@ -3,7 +3,7 @@ using Libs.OpenCore.Providers;
 
 namespace Game.Systems
 {
-    public class DeltaTimeUpdateSystem : IExecuteSystem
+    public class DeltaTimeUpdateSystem : IInitializeSystem, IExecuteSystem
     {
         private readonly GameContext _gameContext;
         private readonly ITimeProvider _timeProvider;
@@ -12,6 +12,11 @@ namespace Game.Systems
         {
             _gameContext = gameContext;
             _timeProvider = timeProvider;
+        }
+        
+        public void Initialize()
+        {
+            Execute();
         }
 
         public void Execute()

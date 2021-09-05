@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using Entitas;
 using Game.Settings;
+using Libs.OpenCore.Ecs;
 using Libs.OpenCore.Providers;
 using UnityEngine;
 
 namespace Game.Systems
 {
-    public class CameraFollowSystem : IExecuteSystem, ICameraFollowSystem
+    public class CameraFollowSystem : IFixedSystem, ICameraFollowSystem
     {
         private readonly ITimeProvider _timeProvider;
         private readonly IGameParametersSettings _gameParametersSettings;

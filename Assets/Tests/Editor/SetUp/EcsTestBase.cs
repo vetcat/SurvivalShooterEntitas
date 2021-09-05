@@ -35,7 +35,6 @@ namespace Tests.Editor.SetUp
             _timeProvider.SetDeltaTime(deltaTime);
 
             _bootstrap.FixedTick();
-            _bootstrap.LateFixed();
             _bootstrap.Tick();
             _bootstrap.LateTick();
         }
