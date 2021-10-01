@@ -13,6 +13,7 @@ List of useful articles:
 - [The truth behind Inversion of Control – Part IV – Dependency Inversion Principle](https://www.sebaslab.com/the-truth-behind-inversion-of-control-part-iv-dependency-inversion-principle/)
 - [The truth behind Inversion of Control – Part V – Entity Component System design to achieve true Inversion of Flow Control](https://www.sebaslab.com/ecs-design-to-achieve-true-inversion-of-flow-control/)
 - [Fluent behavior trees for AI and game-logic](https://www.what-could-possibly-go-wrong.com/fluent-behavior-trees-for-ai-and-game-logic/)
+- [Promises for Game Development](https://www.what-could-possibly-go-wrong.com/promises-for-game-development/)
 ****
 # Entitas
 - [Entitas-CSharp Repository](https://github.com/sschmid/Entitas-CSharp)
