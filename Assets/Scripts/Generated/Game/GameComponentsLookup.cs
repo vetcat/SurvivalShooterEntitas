@@ -8,18 +8,16 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int DeltaTime = 0;
-    public const int Death = 1;
-    public const int Health = 2;
-    public const int PlayerCharacter = 3;
-    public const int PlayerCharacterView = 4;
-    public const int Destroyed = 5;
-    public const int EntityView = 6;
+    public const int Death = 0;
+    public const int Health = 1;
+    public const int PlayerCharacter = 2;
+    public const int PlayerCharacterView = 3;
+    public const int Destroyed = 4;
+    public const int EntityView = 5;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
-        "DeltaTime",
         "Death",
         "Health",
         "PlayerCharacter",
@@ -29,7 +27,6 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Ecs.Features.Game.Components.DeltaTimeComponent),
         typeof(Game.Components.DeathComponent),
         typeof(Game.Components.HealthComponent),
         typeof(Game.Components.PlayerCharacterComponent),

@@ -37,7 +37,6 @@ namespace Game.Installers
         private void BindSystems()
         {
             //-- Hi priority 
-            Container.BindInterfacesAndSelfTo<DeltaTimeUpdateSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerSpawnSystem>().AsSingle();
             
             //-- Medium 

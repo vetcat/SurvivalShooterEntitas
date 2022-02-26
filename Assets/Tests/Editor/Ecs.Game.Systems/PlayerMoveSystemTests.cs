@@ -40,12 +40,13 @@ namespace Tests.Editor.Ecs.Game.Systems
             
             _inputProvider.InputVector.Returns(Vector3.forward);
             _gameParametersSettings.PlayerMoveSpeed.Returns(10f);
-
+            
             //run update fixed update and other
             NextFrame(0.1f);
-            
-            var movePosition = _playerMoveSystem.GetMovePosition(playerEntity.playerCharacterView.Value);
-            Assert.AreNotEqual(startPosition, movePosition);
+
+            var nextMoveCalculatePosition = _playerMoveSystem.GetNextMovePosition(playerEntity.playerCharacterView.Value);
+
+            Assert.AreNotEqual(startPosition, nextMoveCalculatePosition);
         }
         
         [Test]
@@ -56,11 +57,11 @@ namespace Tests.Editor.Ecs.Game.Systems
             
             _inputProvider.InputVector.Returns(Vector3.zero);
             _gameParametersSettings.PlayerMoveSpeed.Returns(10f);
-
+        
             //run update fixed update and other
             NextFrame(0.1f);
             
-            var movePosition = _playerMoveSystem.GetMovePosition(playerEntity.playerCharacterView.Value);
+            var movePosition = _playerMoveSystem.GetNextMovePosition(playerEntity.playerCharacterView.Value);
             Assert.AreEqual(startPosition, movePosition);
         }
     }

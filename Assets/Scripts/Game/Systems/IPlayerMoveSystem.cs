@@ -5,6 +5,6 @@ namespace Game.Systems
 {
     public interface IPlayerMoveSystem
     {
-        Vector3 GetMovePosition(PlayerCharacterView playerCharacterView);
+        Vector3 GetNextMovePosition(PlayerCharacterView playerCharacterView);
     }
 }

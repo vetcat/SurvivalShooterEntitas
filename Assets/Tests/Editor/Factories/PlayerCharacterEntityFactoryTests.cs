@@ -38,5 +38,24 @@ namespace Tests.Editor.Factories
             var playerCharacter = Object.FindObjectOfType<PlayerCharacterView>();
             Assert.IsNotNull(playerCharacter);
         }
+        
+        [Test]
+        public void Factory_CreateEntity_HasRigidbody()
+        {
+            var entity = _playerCharacterEntityFactory.Create();
+
+            var playerCharacter = entity.playerCharacterView.Value;
+            Assert.IsNotNull(playerCharacter.Rigidbody);
+        }
+        
+        [Test]
+        public void Factory_CreateEntity_HasRigidbodyComponent()
+        {
+            var entity = _playerCharacterEntityFactory.Create();
+
+            var playerCharacter = entity.playerCharacterView.Value;
+            var rigidbodyComponent = playerCharacter.GetComponent<Rigidbody>();
+            Assert.AreEqual(true, rigidbodyComponent != null);
+        }
     }
 }
