@@ -7,6 +7,8 @@ Unity version :
 - 2019.4.18f1 : [master](https://github.com/vetcat/SurvivalShooterEntitas/tree/master) branch
 ****
 List of useful articles:
+- [Data-Oriented Design (Or Why You Might Be Shooting Yourself in The Foot With OOP)](https://gamesfromwithin.com/data-oriented-design)
+- [Data-Oriented Design (Or Why You Might Be Shooting Yourself in The Foot With OOP) rusian translate](https://habr.com/ru/post/472052/)
 - [Survival Shooter using Unity’s Entity Component System](https://medium.com/@gamevanilla/survival-shooter-using-unitys-entity-component-system-revisited-874cd69085ae)
 - [Introduction in AlphaECS](https://github.com/tbriley/AlphaECS) (good comparison of Monobehavor and ECS approach in Introduction section)
 - [The truth behind Inversion of Control – Part III – Entity Component System Design](https://www.sebaslab.com/the-truth-behind-inversion-of-control-part-iii-entity-component-systems/)
