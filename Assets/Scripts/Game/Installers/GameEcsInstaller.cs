@@ -41,6 +41,7 @@ namespace Game.Installers
             
             //-- Medium 
             Container.BindInterfacesAndSelfTo<PlayerMoveSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerTurningSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraFollowSystem>().AsSingle();
             
             //-- Low priority (CleanUp systems)
