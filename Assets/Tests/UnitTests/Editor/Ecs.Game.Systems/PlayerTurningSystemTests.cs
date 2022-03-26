@@ -6,11 +6,11 @@ using Game.Settings;
 using Game.Systems;
 using Libs.OpenCore.Providers;
 using NSubstitute;
-using Tests.Editor.SetUp;
+using Tests.UnitTests.Editor.SetUp;
 using UnityEngine;
 using Zenject;
 
-namespace Tests.Editor.Ecs.Game.Systems
+namespace Tests.UnitTests.Editor.Ecs.Game.Systems
 {
     public class PlayerTurningSystemTests : EcsTestBase
     {

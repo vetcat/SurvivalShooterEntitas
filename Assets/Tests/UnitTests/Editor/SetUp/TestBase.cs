@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UniRx;
 using Zenject;
 
-namespace Tests.Editor.SetUp
+namespace Tests.UnitTests.Editor.SetUp
 {
     public abstract class TestBase : ZenjectUnitTestFixture
     {

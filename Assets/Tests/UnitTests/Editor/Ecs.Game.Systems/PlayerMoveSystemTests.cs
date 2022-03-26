@@ -5,11 +5,11 @@ using Game.Settings;
 using Game.Systems;
 using NSubstitute;
 using NUnit.Framework;
-using Tests.Editor.SetUp;
-using Zenject;
+using Tests.UnitTests.Editor.SetUp;
 using UnityEngine;
+using Zenject;
 
-namespace Tests.Editor.Ecs.Game.Systems
+namespace Tests.UnitTests.Editor.Ecs.Game.Systems
 {
     public class PlayerMoveSystemTests : EcsTestBase
     {

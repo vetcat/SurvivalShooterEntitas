@@ -1,8 +1,7 @@
 using System;
-using Game.Providers;
 using Libs.OpenCore.Providers;
 
-namespace Tests.Editor
+namespace Tests.UnitTests.Editor
 {
     public class TimeProviderForTest : ITimeProvider
     {

@@ -2,11 +2,11 @@ using Game.Installers;
 using Game.Models.PlayerCharacter;
 using Game.Settings;
 using NUnit.Framework;
-using Tests.Editor.SetUp;
+using Tests.UnitTests.Editor.SetUp;
 using UnityEngine;
 using Zenject;
 
-namespace Tests.Editor.Factories
+namespace Tests.UnitTests.Editor.Factories
 {
     public class PlayerCharacterEntityFactoryTests : EcsTestBase
     {
