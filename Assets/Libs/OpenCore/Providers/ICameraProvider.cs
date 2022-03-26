@@ -10,5 +10,6 @@ namespace Libs.OpenCore.Providers
         float ScreenAspect { get; }
         Vector2 GetScreenPosition(Vector3 worldPosition);
         Vector3 GetWorldPosition(Vector2 screenPosition);
+        Ray ScreenPointToRay(Vector2 position);
     }
 }

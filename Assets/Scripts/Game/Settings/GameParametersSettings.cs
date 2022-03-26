@@ -46,5 +46,8 @@ namespace Game.Settings
         
         public Vector3 CameraOffset { get; }
         [SerializeField] private Vector3 _cameraOffset;
+
+        public string LayerMaskFloor => _layerMaskFloor;
+        [SerializeField] private string _layerMaskFloor;
     }
 }

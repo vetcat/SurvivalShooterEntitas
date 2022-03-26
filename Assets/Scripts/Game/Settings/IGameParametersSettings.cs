@@ -20,5 +20,6 @@ namespace Game.Settings
 
         float CamRayLen { get; }
         float CamSmoothing { get; }
+        string LayerMaskFloor { get; }
     }
 }

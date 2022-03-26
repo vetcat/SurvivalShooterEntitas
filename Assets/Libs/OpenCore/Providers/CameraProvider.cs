@@ -25,5 +25,10 @@ namespace Libs.OpenCore.Providers
         {
             return CameraView.Camera.ScreenToWorldPoint(screenPosition);
         }
+
+        public Ray ScreenPointToRay(Vector2 position)
+        {
+            return CameraView.Camera.ScreenPointToRay(position);
+        }
     }
 }
