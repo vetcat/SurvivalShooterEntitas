@@ -11,5 +11,6 @@ namespace Libs.OpenCore.Providers
         Vector2 GetScreenPosition(Vector3 worldPosition);
         Vector3 GetWorldPosition(Vector2 screenPosition);
         Ray ScreenPointToRay(Vector2 position);
+        Vector3 GetLayerHitPoint(int mask, Vector2 position, float lenght);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Libs.OpenCore.Ecs;
-using Libs.OpenCore.Ecs.Extensions;
 using Zenject;
 
 namespace Tests.Editor.SetUp
@@ -24,7 +23,7 @@ namespace Tests.Editor.SetUp
 
             //todo later - after add events
             //container.BindInterfacesAndSelfTo<GameEventSystems>().AsSingle().NonLazy();
-            container.BindDestroyedCleanup<GameContext, GameEntity>(GameMatcher.Destroyed);
+            //container.BindDestroyedCleanup<GameContext, GameEntity>(GameMatcher.Destroyed); !!!!!!!!!!!!!!!!
             //... add if there is more Contexts 
         }
 

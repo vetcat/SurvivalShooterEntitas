@@ -6,12 +6,11 @@ using Zenject;
 
 namespace Tests.Editor.SetUp
 {
-    public abstract class TestBase
+    public abstract class TestBase : ZenjectUnitTestFixture
     {
         protected CompositeDisposable Disposable => _commonDisposable;
         [Inject] private List<IInitializable> _initializables;
         [Inject] private List<IDisposable> _disposables;
-        private DiContainer _container;
         protected bool AutoInitialize = true;
         private bool _isInitialized;
         private CompositeDisposable _commonDisposable;
@@ -19,12 +18,11 @@ namespace Tests.Editor.SetUp
         [SetUp]
         public virtual void SetUp()
         {
-            _container = new DiContainer();
-            SignalBusInstaller.Install(_container);
+            SignalBusInstaller.Install(Container);
 
-            Install(_container);
-            _container.Inject(this);
-            _container.ResolveRoots();
+            Install(Container);
+            Container.Inject(this);
+            Container.ResolveRoots();
 
             if (AutoInitialize)
                 Initialize();
@@ -54,7 +52,7 @@ namespace Tests.Editor.SetUp
                     disposable.Dispose();
             }
 
-            _container.UnbindAll();
+            Container.UnbindAll();
             _commonDisposable?.Dispose();
         }
     }

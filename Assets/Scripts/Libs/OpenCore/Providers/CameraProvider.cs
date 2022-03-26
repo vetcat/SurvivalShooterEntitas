@@ -30,5 +30,16 @@ namespace Libs.OpenCore.Providers
         {
             return CameraView.Camera.ScreenPointToRay(position);
         }
+
+        public Vector3 GetLayerHitPoint(int mask, Vector2 position, float lenght)
+        {
+            var ray = ScreenPointToRay(position);
+            if (Physics.Raycast(ray, out var hit, lenght, mask))
+            {
+                return hit.point;
+            }
+            
+            return Vector3.zero;
+        }
     }
 }

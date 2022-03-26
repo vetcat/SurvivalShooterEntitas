@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using Game.Models.PlayerCharacter;
 using Game.Providers;
 using Game.Settings;
 using Libs.OpenCore.Ecs;
@@ -31,20 +32,25 @@ namespace Game.Systems
         public void Execute()
         {
             _playersGroup.GetEntities(_playersBuffer);
-
+            
             for (var i = 0; i < _playersBuffer.Count; i++)
             {
                 var mousePosition = _inputProvider.MousePosition;
-                var ray = _cameraProvider.ScreenPointToRay(mousePosition);
-                
-                if (Physics.Raycast(ray, out var floorHit, _camRayLen, _floorMask))
+
+                var point = _cameraProvider.GetLayerHitPoint(_floorMask, mousePosition, _camRayLen);
+                if (point != Vector3.zero)
                 {
                     var playerView = _playersBuffer[i].playerCharacterView.Value;
-                    var direction = playerView.transform.position.GetDirectionToTarget(floorHit.point).SetY(0f);;
+                    var direction = GetRotationDirection(playerView, point);
 
                     RigidbodyRotation(playerView.Rigidbody, direction);
                 }
             }
+        }
+        
+        public Vector3 GetRotationDirection(PlayerCharacterView playerView, Vector3 target)
+        {
+            return  playerView.transform.position.GetDirectionToTarget(target).SetY(0f);
         }
 
         private void RigidbodyRotation(Rigidbody rigidbody, Vector3 direction)

@@ -25,3 +25,5 @@ MonoBehaviour:
   _scorePerDeath: 10
   _camRayLen: 100
   _camSmoothing: 5
+  _cameraOffset: {x: 0, y: 0, z: 0}
+  _layerMaskFloor: Floor
