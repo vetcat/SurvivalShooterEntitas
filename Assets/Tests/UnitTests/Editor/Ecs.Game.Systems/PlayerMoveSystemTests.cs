@@ -32,6 +32,7 @@ namespace Tests.UnitTests.Editor.Ecs.Game.Systems
             container.BindInterfacesAndSelfTo<PlayerMoveSystem>().AsSingle().NonLazy();
         }
 
+        //todo : late test physic move in Integration test
         [Test]
         public void InputVector_NotZero_ChangeMovePosition()
         {
@@ -49,6 +50,7 @@ namespace Tests.UnitTests.Editor.Ecs.Game.Systems
             Assert.AreNotEqual(startPosition, nextMoveCalculatePosition);
         }
         
+        //todo : late test physic move in Integration test
         [Test]
         public void InputVector_IsZero_NoChangeMovePosition()
         {

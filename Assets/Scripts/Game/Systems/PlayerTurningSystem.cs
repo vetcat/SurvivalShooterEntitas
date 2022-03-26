@@ -21,7 +21,7 @@ namespace Game.Systems
         public PlayerTurningSystem(GameContext gameContext, IInputProvider inputProvider,
             ICameraProvider cameraProvider, IGameParametersSettings gameParametersSettings)
         {
-            _floorMask = LayerMask.GetMask (gameParametersSettings.LayerMaskFloor);
+            _floorMask = LayerMask.GetMask(gameParametersSettings.LayerMaskFloor);
             _camRayLen = gameParametersSettings.CamRayLen;
             _inputProvider = inputProvider;
             _cameraProvider = cameraProvider;
@@ -32,7 +32,7 @@ namespace Game.Systems
         public void Execute()
         {
             _playersGroup.GetEntities(_playersBuffer);
-            
+
             for (var i = 0; i < _playersBuffer.Count; i++)
             {
                 var mousePosition = _inputProvider.MousePosition;
@@ -47,10 +47,10 @@ namespace Game.Systems
                 }
             }
         }
-        
+
         public Vector3 GetRotationDirection(PlayerCharacterView playerView, Vector3 target)
         {
-            return  playerView.transform.position.GetDirectionToTarget(target).SetY(0f);
+            return playerView.transform.position.GetDirectionToTarget(target).SetY(0f);
         }
 
         private void RigidbodyRotation(Rigidbody rigidbody, Vector3 direction)

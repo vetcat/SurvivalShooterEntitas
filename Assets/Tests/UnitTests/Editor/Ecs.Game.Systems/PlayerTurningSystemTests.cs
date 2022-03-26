@@ -1,4 +1,3 @@
-using System.Collections;
 using Game.Installers;
 using Game.Models.PlayerCharacter;
 using Game.Providers;
@@ -6,6 +5,7 @@ using Game.Settings;
 using Game.Systems;
 using Libs.OpenCore.Providers;
 using NSubstitute;
+using NUnit.Framework;
 using Tests.UnitTests.Editor.SetUp;
 using UnityEngine;
 using Zenject;
@@ -36,8 +36,9 @@ namespace Tests.UnitTests.Editor.Ecs.Game.Systems
             container.BindInterfacesAndSelfTo<PlayerTurningSystem>().AsSingle().NonLazy();
         }
 
-        // [UnityTest]
-        public IEnumerator EnumeratorTest()
+        //todo : late test physic rotation in Integration test
+        [Test]
+        public void ChangeTarget_RotateToTarget()
         {
             var playerEntity = _playerCharacterEntityFactory.Create();
             var startRotation = playerEntity.playerCharacterView.Value.transform.rotation;
@@ -46,11 +47,10 @@ namespace Tests.UnitTests.Editor.Ecs.Game.Systems
             _cameraProvider.GetLayerHitPoint(Arg.Any<int>(), Arg.Any<Vector2>(), Arg.Any<float>()).Returns(targetPoint);
             
             NextFrame(0.1f);
-            yield return null;
-        
-            var finalRotation = playerEntity.playerCharacterView.Value.transform.rotation;
-            Debug.Log($"PlayerTurningSystemTests EnumeratorTest complete startRotation = {startRotation}; finalRotation = {finalRotation}");
-            yield return null;
+            var direction =
+                _playerTurningSystem.GetRotationDirection(playerEntity.playerCharacterView.Value, targetPoint);
+            
+            Assert.AreNotEqual(startRotation, direction);
         }
     }
 }
