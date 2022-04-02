@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
 using Game.Models.PlayerCharacter;
-using Game.Providers;
 using Game.Settings;
 using Libs.OpenCore.Ecs;
 using Libs.OpenCore.Providers;
@@ -11,21 +10,19 @@ namespace Game.Systems
 {
     public class PlayerTurningSystem : IFixedSystem
     {
-        private readonly IInputProvider _inputProvider;
         private readonly ICameraProvider _cameraProvider;
         private readonly IGroup<GameEntity> _playersGroup;
         private readonly List<GameEntity> _playersBuffer = new List<GameEntity>();
         private readonly int _floorMask;
         private readonly float _camRayLen;
 
-        public PlayerTurningSystem(GameContext gameContext, IInputProvider inputProvider,
+        public PlayerTurningSystem(GameContext gameContext,
             ICameraProvider cameraProvider, IGameParametersSettings gameParametersSettings)
         {
             _floorMask = LayerMask.GetMask(gameParametersSettings.LayerMaskFloor);
             _camRayLen = gameParametersSettings.CamRayLen;
-            _inputProvider = inputProvider;
             _cameraProvider = cameraProvider;
-            _playersGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerCharacterView)
+            _playersGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerCharacter)
                 .NoneOf(GameMatcher.Death, GameMatcher.Destroyed));
         }
 
@@ -35,12 +32,13 @@ namespace Game.Systems
 
             for (var i = 0; i < _playersBuffer.Count; i++)
             {
-                var mousePosition = _inputProvider.MousePosition;
+                var player = _playersBuffer[i];
+                var mousePosition = player.playerInput.MousePosition;
 
                 var point = _cameraProvider.GetLayerHitPoint(_floorMask, mousePosition, _camRayLen);
                 if (point != Vector3.zero)
                 {
-                    var playerView = _playersBuffer[i].playerCharacterView.Value;
+                    var playerView = player.playerCharacterView.Value;
                     var direction = GetRotationDirection(playerView, point);
 
                     RigidbodyRotation(playerView.Rigidbody, direction);

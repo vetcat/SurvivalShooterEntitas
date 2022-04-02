@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using Entitas;
-using Game.Models.PlayerCharacter;
-using Game.Providers;
 using Game.Settings;
 using Libs.OpenCore.Ecs;
 using Libs.OpenCore.Providers;
@@ -13,16 +11,14 @@ namespace Game.Systems
     {
         private readonly ITimeProvider _timeProvider;
         private readonly IGameParametersSettings _gameParametersSettings;
-        private readonly IInputProvider _inputProvider;
         private readonly IGroup<GameEntity> _playersGroup;
         private readonly List<GameEntity> _playersBuffer = new List<GameEntity>();
 
-        public PlayerMoveSystem(GameContext gameContext, IGameParametersSettings gameParametersSettings, IInputProvider inputProvider, ITimeProvider timeProvider)
+        public PlayerMoveSystem(GameContext gameContext, IGameParametersSettings gameParametersSettings, ITimeProvider timeProvider)
         {
             _gameParametersSettings = gameParametersSettings;
-            _inputProvider = inputProvider;
             _timeProvider = timeProvider;
-            _playersGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerCharacterView)
+            _playersGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerCharacter)
                 .NoneOf(GameMatcher.Death, GameMatcher.Destroyed));
         }
 
@@ -32,22 +28,21 @@ namespace Game.Systems
             
             for (var i = 0; i < _playersBuffer.Count; i++)
             {
-                var playerView = _playersBuffer[i].playerCharacterView.Value;
-                MovePlayer(playerView);
+                MovePlayer(_playersBuffer[i]);
             }
         }
         
-        public Vector3 GetNextMovePosition(PlayerCharacterView playerCharacterView)
+        public Vector3 GetNextMovePosition(GameEntity player)
         {
             var speed = _gameParametersSettings.PlayerMoveSpeed;
-            var nextMovementPosition = _inputProvider.InputVector.normalized * _timeProvider.DeltaTime * speed;
-            return playerCharacterView.transform.position + nextMovementPosition;
+            var nextMovementPosition = player.playerInput.InputVector.normalized * _timeProvider.DeltaTime * speed;
+            return player.playerCharacterView.Value.transform.position + nextMovementPosition;
         }
 
-        private void MovePlayer(PlayerCharacterView playerView)
+        private void MovePlayer(GameEntity player)
         {
-            var movePosition = GetNextMovePosition(playerView);
-            playerView.Rigidbody.MovePosition(movePosition);
+            var movePosition = GetNextMovePosition(player);
+            player.playerCharacterView.Value.Rigidbody.MovePosition(movePosition);
         }
     }
 }

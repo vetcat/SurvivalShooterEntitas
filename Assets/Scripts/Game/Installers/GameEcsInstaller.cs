@@ -40,6 +40,7 @@ namespace Game.Installers
             Container.BindInterfacesAndSelfTo<PlayerSpawnSystem>().AsSingle();
             
             //-- Medium 
+            Container.BindInterfacesAndSelfTo<PlayerInputSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerMoveSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerTurningSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraFollowSystem>().AsSingle();

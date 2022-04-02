@@ -1,4 +1,5 @@
 using Game.Settings;
+using UnityEngine;
 
 namespace Game.Models.PlayerCharacter
 {
@@ -21,6 +22,7 @@ namespace Game.Models.PlayerCharacter
             var entity = _gameContext.CreateEntity();
             entity.isPlayerCharacter = true;
             entity.AddHealth(_gameParametersSettings.StartingPlayerHealth);
+            entity.AddPlayerInput(Vector3.zero, Vector2.zero);
 
             AddView(entity);
 

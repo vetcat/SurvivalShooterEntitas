@@ -28,6 +28,7 @@ namespace Tests.UnitTests.Editor.Ecs.Game.Systems
                 .FromComponentInNewPrefab(gamePrefabsInstaller.PlayerCharacterView.gameObject);
             
             container.BindInterfacesAndSelfTo<PlayerCharacterEntityFactory>().AsSingle().NonLazy();
+            container.BindInterfacesAndSelfTo<PlayerInputSystem>().AsSingle().NonLazy();
             
             container.BindInterfacesAndSelfTo<PlayerMoveSystem>().AsSingle().NonLazy();
         }
@@ -45,7 +46,7 @@ namespace Tests.UnitTests.Editor.Ecs.Game.Systems
             //run update fixed update and other
             NextFrame(0.1f);
 
-            var nextMoveCalculatePosition = _playerMoveSystem.GetNextMovePosition(playerEntity.playerCharacterView.Value);
+            var nextMoveCalculatePosition = _playerMoveSystem.GetNextMovePosition(playerEntity);
 
             Assert.AreNotEqual(startPosition, nextMoveCalculatePosition);
         }
@@ -63,7 +64,7 @@ namespace Tests.UnitTests.Editor.Ecs.Game.Systems
             //run update fixed update and other
             NextFrame(0.1f);
             
-            var movePosition = _playerMoveSystem.GetNextMovePosition(playerEntity.playerCharacterView.Value);
+            var movePosition = _playerMoveSystem.GetNextMovePosition(playerEntity);
             Assert.AreEqual(startPosition, movePosition);
         }
     }
