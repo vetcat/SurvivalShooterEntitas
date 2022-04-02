@@ -21,6 +21,7 @@ List of useful articles:
 - [Entitas-CSharp Repository](https://github.com/sschmid/Entitas-CSharp)
 - [Entitas Wiki](https://github.com/sschmid/Entitas-CSharp/wiki)
 - [EntitasCookBook](https://github.com/mzaks/EntitasCookBook)
+- [How to setup a new Github project with Unity and tests](https://github.com/sschmid/Entitas-CSharp/wiki/How-to-setup-a-new-Github-project-with-Unity-and-tests)
 ****
 other resources for learning
 - [ecsrx.gitbook](https://ecsrx.gitbook.io/project/)
